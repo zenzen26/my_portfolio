@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+    /* Custom color palette */
+  --yellow-soft: #ffd966;    /* (255,217,102) */
+  --orange-bright: #f5972d;  /* (245,151,45) */
+  --gold-muted: #cfa45f;     /* (207,164,95) */
+  --green-leaf: #45db00;     /* (57,124,27) */
+  --green-dark: #2a4020;     /* deep dark green */
 }
 
 @theme inline {
@@ -17,6 +23,21 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@keyframes rotateX360 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+.hover-rotate-x-360:hover {
+  animation: rotateX360 0.6s ease-in-out forwards;
+  transform-origin: bottom;
+  perspective: 600px;
 }
 
 body {
