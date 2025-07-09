@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 // import { Fraunces } from 'next/font/google'
 // import { Sigmar_One } from 'next/font/google'
@@ -72,11 +73,12 @@ export default function Home() {
           </div>
           {/* Right Image Container */}
           <div>
-            <img
+            <Image
               src="/images/avatar.png"
               alt="avatar"
-              className="w-full h-full object-contain rounded-xl shadow-lg"
-              style={{ maxHeight: '500px' }}
+              width={500} // adjust based on your layout
+              height={500}
+              className="w-full h-auto rounded-xl shadow-lg object-contain"
             />
           </div>
         </section>
@@ -116,7 +118,7 @@ export default function Home() {
                 <ul className="body-3 list-disc list-inside text-left space-y-2 my-3">
                   <li>Healthcare (Preferred)</li>
                   <li>Finance</li>
-                  <li>Transport & City Planning</li>
+                  <li>Transport &amp; City Planning</li>
                   <li>Open to others</li>
                 </ul>
                 <p className="body-3 font-bold underline">Tasks</p>
@@ -157,24 +159,24 @@ export default function Home() {
 
         {/* Let’s Work Together — Here’s Why */}
         <section className="my-20 text-left">
-          <h2 className='my-10'>🌟 Let’s Work Together — Here’s Why 🌟</h2>
+          <h2 className='my-10'>🌟 Let’s Work Together — Here&apos;s Why 🌟</h2>
            <p className="body-2">
-              I’m a data-loving, cat-appreciating, Python-wrangling human currently surviving both Australia’s wildlife and syntax errors. 
+              I&apos;m a data-loving, cat-appreciating, Python-wrangling human currently surviving both Australia’s wildlife and syntax errors. 
               With a background in AI and Data Analytics, I enjoy finding patterns in chaos and turning messy data into something that 
               actually makes sense (and looks good while doing it).
             </p>
 
-            <h4 className="mt-8 mb-4">You’ll want me on your team if you need someone who:</h4>
+            <h4 className="mt-8 mb-4">You&apos;ll want me on your team if you need someone who:</h4>
             <ul className="list-disc list-inside space-y-2 body-3">
               <li>Thinks critically and works hands-on to build machine learning models</li>
               <li>Speaks both “tech” and “plain English” (especially helpful for cross-functional teams)</li>
               <li>Has just enough design sense to make things pretty, and just enough logic to make them work</li>
-              <li>Loves learning, googles fast, and isn’t afraid of a challenge</li>
+              <li>Loves learning, googles fast, and isn&apos;t afraid of a challenge</li>
             </ul>
         </section>
         {/* What I'm Looking For in a Team */}
         <section className="my-20 text-left">
-          <h2 className='my-10'>🚀 What I'm Looking For in a Team 🚀</h2>
+          <h2 className='my-10'>🚀 What I&apos;m Looking For in a Team 🚀</h2>
            <p className="body-2">
               I’m seeking opportunities to:
             </p>
