@@ -2,15 +2,12 @@
 import { useEffect, useState } from 'react'
 // import { useRouter } from 'next/navigation'
 import { useRouter } from 'next/router' // ✅ correct for pages dir
-import { Sigmar_One } from 'next/font/google'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const sigmar = Sigmar_One({ subsets: ['latin'], weight: '400' })
-
 const slides = [
-  { lines: ['KNOCK KNOCK'], bg: 'var(--yellow-soft)' },
-  { lines: ['WHO\'S THERE?'], bg: 'var(--gold-muted)' },
-  { lines: ['POOKIE WHO ?'], bg: 'var(--orange-bright)' },
+  { lines: ['KNOCK KNOCK'], bg: 'var(--primary)' },
+  { lines: ['WHO\'S THERE?'], bg: 'var(--primary)' },
+  { lines: ['POOKIE WHO ?'], bg: 'var(--primary)' },
 ]
 
 export default function Landing() {
@@ -43,7 +40,6 @@ export default function Landing() {
 
   return (
     <main
-      className={`relative ${sigmar.className}`}
       style={{ height: '100vh', overflow: 'hidden' }}
     >
       {/* Animate background color container */}
@@ -69,8 +65,7 @@ export default function Landing() {
               {slide.lines.map((line, idx) => (
                 <motion.h1
                   key={idx}
-                  style={{ color: 'var(--green-dark)' }}
-                  className="text-center font-bold text-[120px] sm:text-[80px] lg:text-[120px] tracking-tight"
+                  className="text-secondary text-center font-bold text-[220px] sm:text-[80px] lg:text-[220px] tracking-tight"
                   initial={{ opacity: 0, y: 30, letterSpacing: '-0.05em' }}
                   animate={{
                     opacity: i === current ? 1 : 0,

@@ -1,33 +1,91 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
+/* Custom font faces */
+@font-face {
+  font-family: 'Bristol';
+  src: url('/fonts/Bristol.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Root variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-    /* Custom color palette */
-  --yellow-soft: #ffd966;    /* (255,217,102) */
-  --orange-bright: #f5972d;  /* (245,151,45) */
-  --gold-muted: #cfa45f;     /* (207,164,95) */
-  --green-leaf: #45db00;     /* (57,124,27) */
-  --green-dark: #2a4020;     /* deep dark green */
+  --background: #282823;
+  --foreground: #f0e8cd; /* Your secondary color used as foreground for contrast */
+
+  --font-heading: 'Bristol', sans-serif;
+  --font-body: 'Courier Prime', monospace;
+
+  --primary: #282823;
+  --secondary: #f0e8cd;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
+/* Optional dark mode override */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+
+/* Global body styling */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+}
+p {
+  color: var(--foreground);
+}
+
+/* Typography Details: Size, line height, letter spacing etc */
+/* Headings */
+h1 {
+  @apply text-[4.5rem] font-bold leading-tight; 
+}
+h2 {
+  @apply text-[3.875rem] font-semibold leading-snug;
+}
+h3 {
+  @apply text-[3.25rem] font-semibold leading-snug; 
+}
+h4 {
+  @apply text-[2.625rem] font-semibold leading-snug; 
+}
+
+/* Body text */
+.body-1 {
+  @apply text-[2rem] leading-relaxed font-normal;
+  font-family: var(--font-body);
+}
+.body-2 {
+  @apply text-[1.75rem] leading-relaxed font-normal;
+  font-family: var(--font-body);
+}
+.body-3 {
+  @apply text-[1.5rem] leading-relaxed font-normal;
+  font-family: var(--font-body);
+}
+.big-title{
+  @apply text-[8rem] leading-relaxed font-bold;
+  font-family: var(--font-heading);
+}
+
+
 
 @keyframes rotateX360 {
   0% {
@@ -38,14 +96,43 @@
   }
 }
 
+/* NavBar "casino" vertical scroll-up hover animation */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+  height: 1.5em;
+  cursor: pointer;
+  color: #2a4020;
+  display: inline-block;
+}
+
+.nav-item span {
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover span {
+  animation: rollUp 0.6s forwards;
+}
+
+@keyframes rollUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  51% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .hover-rotate-x-360:hover {
   animation: rotateX360 0.6s ease-in-out forwards;
   transform-origin: bottom;
   perspective: 600px;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
