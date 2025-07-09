@@ -186,7 +186,6 @@ export default function Home() {
               <li>Gain hands-on experience managing databases using cloud platforms such as Kubernetes, Azure, and AWS.</li>
             </ul>
         </section>
-
       </div>
     </main>
   )
