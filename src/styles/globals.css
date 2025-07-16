@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); /*Courier Prime*/
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap'); /*Silkscreen*/
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 /* Custom font faces */
 @font-face {
@@ -10,46 +10,50 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TanTangkiwood';
+  src: url('/fonts/TanTangkiwood.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Root variables */
 :root {
-  --background: #282823;
-  --foreground: #f0e8cd; /* Your secondary color used as foreground for contrast */
+  --background: #f5c000;
+  --foreground: #ffffff; /* Your secondary color used as foreground for contrast */
 
-  --font-heading: 'Bristol', sans-serif;
-  --font-body: 'Courier Prime', monospace;
+  --font-silkscreen: 'Silkscreen', sans-serif;
+  --font-courier: 'Courier Prime', monospace;
+  --font-tangkiwood: 'TanTangkiwood', sans-serif;
 
-  --primary: #282823;
-  --secondary: #f0e8cd;
+  /* custom colors */
+  --color-dark-black: #010101;
+  --color-amber: #f5c000;
+  --color-tobacco-brown: #6c5e41;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
-  --font-heading: var(--font-heading);
 }
+
+
 
 /* Optional dark mode override */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #acacac;
+    --foreground: #ffffff;
   }
 }
 
 /* Global body styling */
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: var(--secondary);
+  font-family: var(--font-silkscreen);
   letter-spacing: 0.02em;
-}
-p {
-  color: var(--foreground);
 }
 
 /* Typography Details: Size, line height, letter spacing etc */
@@ -64,28 +68,47 @@ h3 {
   @apply text-[3.25rem] font-semibold leading-snug; 
 }
 h4 {
-  @apply text-[2.625rem] font-semibold leading-snug; 
+  @apply text-[2rem] font-semibold leading-snug; 
 }
 
 /* Body text */
 .body-1 {
   @apply text-[2rem] leading-relaxed font-normal;
-  font-family: var(--font-body);
+  font-family: var(--font-courier);
 }
 .body-2 {
   @apply text-[1.75rem] leading-relaxed font-normal;
-  font-family: var(--font-body);
+  font-family: var(--font-courier);
 }
 .body-3 {
   @apply text-[1.5rem] leading-relaxed font-normal;
-  font-family: var(--font-body);
+  font-family: var(--font-courier);
 }
 .big-title{
+  font-family: var(--font-silkscreen);
   @apply text-[8rem] leading-relaxed font-bold;
-  font-family: var(--font-heading);
+  
+}
+.big-title-2{
+  @apply font-bold;
+  font-family: var(--font-tangkiwood);
 }
 
+/* Container */
+.bg-grid-50 {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px; /* grid cell size */
+}
 
+.container-1 {
+  @apply border-3 border-black rounded-[20px] px-20 py-10;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
 
 @keyframes rotateX360 {
   0% {
@@ -104,6 +127,7 @@ h4 {
   cursor: pointer;
   color: #2a4020;
   display: inline-block;
+  font-family: var(--font-silkscreen);
 }
 
 .nav-item span {
@@ -130,7 +154,6 @@ h4 {
     transform: translateY(0);
   }
 }
-
 .hover-rotate-x-360:hover {
   animation: rotateX360 0.6s ease-in-out forwards;
   transform-origin: bottom;
