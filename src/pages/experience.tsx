@@ -37,7 +37,7 @@ function monthsDiff(d1: Date, d2: Date) {
   return (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth())
 }
 
-const monthHeight = 50
+const monthHeight = 80  // Increased from 50 to 80 for more vertical spacing
 const cardWidth = 600
 
 // Years to show in floating menu
@@ -187,12 +187,12 @@ export default function HorizontalTimeline() {
                     }}
                     title={`${event.title} End`}
                   />
-                  <h4
-                    className="absolute left-full ml-4 -translate-y-1/2 text-black font-semibold select-none"
-                    style={{ top: endY }}
+                  <p
+                    className="body-3 absolute left-full ml-4 text-black font-semibold select-none"
+                    style={{ top: endY - 40 }}
                   >
                     {`${event.title} ended`}
-                  </h4>
+                  </p>
                 </div>
               )
             })}
